@@ -1,0 +1,57 @@
+<section>
+  <nav>
+    <div >
+      <input type="text"  placeholder="Enter task " name="task" [(ngModel)]="addMessageValue">
+      <button class="btn btn-outline-success" type="button" (click)="addMessage()">add message</button>
+    </div>
+  </nav>
+</section>
+
+
+<section>
+  <div class="container">
+     <div class="row">
+      <div class="col">
+       <table class="table table-hover text-center  table-striped">
+         <thead class="bg bg-dark text-white">
+          <tr>
+            <th>Id</th>
+            <th>message</th>
+            <th>Action1</th>
+            <th>Action2</th>
+          </tr>
+         </thead>
+         <tbody>
+          <tr *ngFor="let m of msgArr">
+             <td>{{m.id}}</td>
+             <td>{{m.message1}}</td>
+             <td>
+              <button data-bs-toggle="modal" type="button" data-bs-target="#exampleModal" (click)="call(m)" >edit</button>
+             </td>
+             <td>
+              <button (click)="deleteMessage(m)">delete</button>
+             </td>
+          </tr>
+         </tbody>
+       </table>
+      </div>
+
+     </div>
+  </div>
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Edit message</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <div class="input-group p-4">
+                <input type="text" class="form-control" placeholder="Enter Message " name="task" [(ngModel)]="editMessageValue">
+                <button class="btn btn-outline-success" type="button" data-bs-dismiss="modal" (click)="editMessage()">Update</button>
+            </div>
+        </div>
+    </div>
+    </div>
+</div>
+</section>
